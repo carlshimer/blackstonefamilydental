@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% block title %}New Patients{%endblock%}
+{%block content %}
+<div id="content" class="newpatient">
+	<div class="download lft">
+		<h2>New Patient</h2>
+		<p>Download a copy of our new patient paperwork and be prepared in advance for your appointment.  All three forms need to be completed.</p>
+    <div class="doc">
+    <a href="/documents/hipaa.pdf">HIPAA privacy policy</a>
+    <span>Required by <a href="http://en.wikipedia.org/wiki/Health_Insurance_Portability_and_Accountability_Act" class="noimg">law</a></span>
+    </div>
+    <div class="doc">
+      <a href="/documents/hipaa_auth.pdf">release form for health care information</a>
+    </div>
+    <div class="doc">
+		  <a href="/documents/newpatient.pdf">New patient information</a>
+    </div>
+	</div>
+	<div class="request rgt">
+		<h2>Request an Appointment</h2>
+		<p>Send us an email today!</p>
+		<a href="mailto:appointments@blackstonefamilydental.com">appointments@blackstonefamilydental.com</a>
+	</div>
+	<div class="hours rgt">
+		<h2>Hours of Operation</h2>
+    <p><span class="days">Monday</span><span>12 pm - 8 pm</span></p>
+    <p><span class="days">Tuesday</span><span>12 pm - 8 pm</span></p>
+    <p><span class="days">Wednesday</span><span>closed</span></p>
+		<p><span class="days">Thursday</span><span>8 am - 5 pm</span></p>
+		<p><span class="days">Friday</span><span>7 am - 4pm</span></p>
+	</div>
+	<div class="policy lft">
+		<h2>Cancellation Policy</h2>
+    <p>
+      Please call or email as soon as possible if you cannot make your appointment.  We reserve the right to charge a cancellation fee for missed appointments.
+    </p>
+
+	</div>
+	<div class="payment rgt">
+		<h2>Types of Payment Accepted</h2>
+		<p>Cash or check</p>
+    <p>Visa or Mastercard Accpted</p>
+    <p>Financing through <a href="http://www.carecredit.com">Care Credit &reg;</a>
+	</div>
+</div> <!-- end content -->
+{% endblock %}
