@@ -1,0 +1,84 @@
+html,body,div { 
+  margin:0;
+  padding:0;
+ }
+
+body { 
+  color:#C0C0C0;
+  font-family:Georgia,"Times New Roman",times,serif;
+  min-width:850px;
+ }
+
+#centercontainer { 
+  width:850px;
+  margin:10px auto;
+ }
+
+
+#header { 
+  height:190px;
+  background-color:#1a208e;
+  color:gold;
+  font-family:Georgia,Times new Roman;
+  font-size:32px;
+  margin-bottom:50px;
+ }
+
+#header a { 
+  color:gold;
+  font-size:20px;
+}
+
+#location { font-size:20px; }
+
+#title_container { 
+  text-align:center;
+  padding-left:20px;
+  padding-top:20px;
+  float:left;
+ }
+
+#navbar { 
+  float:left;
+  width:20%;
+  color:#333333;
+  background-color:#C0C0C0;
+
+}
+#navbar ul { 
+list-style-type:none; 
+}
+#navbar li {  margin-left:-40px;padding-left:0; }
+#navbar a { 
+  
+  font-size:18px;
+  line-height:30px;
+
+ }
+
+#contentcontainer { 
+  float:left;
+  color:#004276;
+  max-width:80%;
+ }
+#contentcontainer p,ul,li { font-family:Arial; }
+
+.emph { 
+  color:red;
+  font-weight:bold;
+  font-size:24px;
+ }
+
+.phone { 
+  padding-top:5px;
+  font-family:Arial;
+  font-size:22px;
+ }
+
+.thumbcontainer { 
+  padding-top:20px;
+ }
+.thumbcontainer a {  padding-right:20px; }
+a img {  border:2px solid #C0C0C0; }
+
+#gmaps_popup p {  font-size:12px; }

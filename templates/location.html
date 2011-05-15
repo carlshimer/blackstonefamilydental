@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% block title %}Welcome to Blackstone Family Dental{% endblock %}
+{% block extraheaders %}
+<!-- for bsd -->
+  <script src="http://maps.google.com/maps?file=api&amp;v=2&amp;sensor=false&amp;key=ABQIAAAA8RZ9iq9dbWaYnftGl5kHTxQ6_BW-0SRH0ebl9YPflKbFoUvWdBTGTu6jo6eVC1Fn4zpYr5Q2oy0Tfw"
+    type="text/javascript">
+  </script>
+<!--
+  <script src="http://maps.google.com/maps?file=api&amp;v=2&amp;sensor=false&amp;key=ABQIAAAA8RZ9iq9dbWaYnftGl5kHTxT2yXp_ZAY8_ufC3CFXhHIE1NvwkxSPIAuJ_CpW6QzwotgfDN_uvQhpDQ"
+    type="text/javascript">
+  </script>
+-->
+<script type="text/javascript">
+Event.observe(window,'load',function() {
+   if (GBrowserIsCompatible()) {
+        var map = new GMap2(document.getElementById("map_canvas"));
+        var center = new GLatLng(42.160345, -71.737960);
+        map.setCenter(center, 15);
+        var d = document.createElement('div');
+        d.id = "gmaps_popup";
+        var p1 = document.createElement('p');
+        p1.appendChild(document.createTextNode('Blackstone Family Dental'));
+        p2 = document.createElement('p');
+        p2.appendChild(document.createTextNode('Enter the plaza from 146 south or Boston Rd.'));
+        var img = document.createElement('img');
+        img.setAttribute('src','/images/office/thumbs/bsd_front_thumb.jpg');
+        d.appendChild(p1);
+        d.appendChild(img);
+        d.appendChild(p2);
+        map.openInfoWindow(center,d);
+        map.setUIToDefault();
+      }
+
+});
+Event.observe(window,'unload',GUnload);
+</script>
+
+{% endblock %}
+
+{% block content %}
+<div id="map_canvas" style="width:650px;height:400px"/>
+{% endblock %}

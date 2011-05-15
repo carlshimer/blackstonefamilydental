@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% block title %}Welcome to Blackstone Family Dental{% endblock %}
+{% block extraheaders %}
+<link rel="stylesheet" type="text/css" href="css/lightview.css" />
+<script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/scriptaculous/1.8.2/scriptaculous.js'></script>
+<script type='text/javascript' src='js/lightview.js'></script>
+<script type='text/javascript'>
+// reminder: this syntax is highly prototype specific.
+document.observe('lightview:loaded', function() {
+  function st() {Lightview.startSlideshow() };
+  var images = $('slidecontainer').getElementsByTagName('a');
+  for(var i=0;i<images.length;i++) {
+    images[i].observe('click',function() { st.delay(5); });
+  }
+});
+</script>
+{% endblock %}
+
+{% block content %}
+<p>Click on a picture to start a tour of our state of the art office.</p>
+<div id="slidecontainer">
+<div class="thumbcontainer">
+<a id="image1" href='/images/office/bsd_front.jpg' class='lightview' rel='gallery[office]'
+title="Blackstone Family Dental :: The office is located in Sutton Square plaza near the post office, right off of route 146 :: slideshow:true"
+>
+<img src="/images/office/thumbs/bsd_front_thumb.jpg"/>
+</a>
+<a href='/images/office/bsd_waiting1.jpg' class='lightview' rel='gallery[office]'
+title="The waiting room"
+>
+<img src="/images/office/thumbs/bsd_waiting1_thumb.jpg"/>
+</a>
+<a href='/images/office/bsd_waiting2.jpg' class='lightview' rel='gallery[office]'
+title="Another view of the waiting room"
+>
+<img src="/images/office/thumbs/bsd_waiting2_thumb.jpg"/>
+</a>
+</div>
+<div class="thumbcontainer"/>
+<a href='/images/office/bsd_chair.jpg' class='lightview' rel='gallery[office]'
+title="Dental operatory :: Our brand new office is equiped with the latest technology"
+>
+<img src="/images/office/thumbs/bsd_chair_thumb.jpg"/>
+</a>
+<a href='/images/office/bsd_autoclave.jpg' class='lightview' rel='gallery[office]'
+title="Instrument sterilization"
+>
+<img src="/images/office/thumbs/bsd_autoclave_thumb.jpg"/>
+</a>
+</div>
+</div>
+{% endblock %}
