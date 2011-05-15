@@ -3,43 +3,40 @@
 <html>
 <head>
 <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+<link href="css/reset.css" rel="stylesheet" type="text/css" />
+<link href="css/main.css" rel="stylesheet" type="text/css" media="screen" />
 <link rel="stylesheet" href="css/main.css"/>
 <title>{% block title %}{% endblock %}</title>
 <script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/prototype/1.6.0.3/prototype.js'></script>
 {% block extraheaders %}{% endblock %}
 </head>
 <body>
-<div id="centercontainer">
-<div id="header">
-  <div id="title_container">
-    <div>Welcome to</div>
-    <div id="title">Blackstone Family Dental</div>
-    <div id="location">160 Worcester Providence Turnpike, Sutton MA</div>
-    <div class="phone">508-865-2334</div>
-    <div class="phone"><a href="mailto:appointments@blackstonefamilydental.com">appointments@blackstonefamilydental.com</a></div>
-  </div>
-  <div style="float:left;padding-left:150px;padding-top:20px">
-    <img src="images/weathervane_small.png"/>
-  </div>
-</div>
-
-<div id="navbar">
-<ul>
-<li><a href="/">home</a></li>
-<li><a href="/directions">Location</a></li>
-<li><a href="/theoffice">The Office</a></li>
-<li><a href="/aboutus">Meet the staff</a></li>
-
-<!--
-<li><a href="/services">Services</a></li>
-<li><a href="/contactus">Contact us</a></li>
--->
-</ul>
-</div>
-<div id="contentcontainer">
-{% block content %}{% endblock %}
-</div>
-
-
-</div> <!-- center container -->
+	<div id="container">
+		<!-- Begin Header -->
+		<div id="header">
+			<div class="rgt">
+				<p>160 Worcester Providence Tpke, Sutton MA<br />
+				   <a href="mailto:appointments@blackstonefamilydental.com">appointments@blackstonefamilydental.com</a><br />
+				   <span class="font18">508-865-2334</span>
+				</p>
+			</div>
+			<a href="index.html"><img src="images/blackstone_logo.png" alt="Blackstone Family Dental" class="logo" /></a>
+			<h2>&ldquo;Smile with pride&rdquo;</h2>
+			<!-- To mark a navigational item as selected, you need to add the class name selected to show the alternate state -->
+			<ul>
+				<li><a href="/" class="{{page.root_class}}">Home</a></li>
+				<li><a href="/staff" class="{{page.staff_class}}">Our Staff</a></li>
+				<li><a href="/office" class="{{page.office_class}}">Our Office</a></li>
+				<li><a href="/services" class="{{page.services_class}}">Services</a></li>
+				<li><a href="/before_after" class="{{page.before_after_class}}">Before &amp; After</a></li>
+				<li><a href="/newpatient" class="{{page.newpatient}}">New Patient</a></li>
+			</ul>
+			<div class="clr"></div>
+		</div>
+		<!-- END Header -->
+    {% block content %}{% endblock %}
+    <!-- END Content Area -->
+    <div id="footer"><p><span class="lft">Blackstone Family Dental&nbsp;&nbsp;&nbsp;&nbsp;Copyright &copy; 2011</span><span class="rgt"><a href="http://www.davidsantoswebdesign.com"</span>David Santos Web Design</a></p></div>
+	</div> <!-- container -->
+</body>
 </body>
