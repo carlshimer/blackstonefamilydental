@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block title %}Our services{% endblock %}
+{% block content %}
+<style type="text/css">
+{{page.selected_rule}}
+</style>
+<div id="content" class="services">
+	<div class="left-side">
+    {% block leftblock %}{% endblock %}
+  </div>
+	<div class="details rgt">
+    {% block rightblock %}{% endblock %}
+		<h3>Other Services</h3>
+		<p><a id="fillings" href="/services/fillings">Fillings</a>, 
+       <a id="crowns" href="/services/crowns">Crowns</a>, 
+       <a id="cleanings" href="/services/cleanings">Deep&nbsp;Cleaning</a>, 
+       <a id="nightguard" href="/services/nightguard">Night&nbsp;Guard</a>, 
+       <a id="implants" href="/services/implants">Implants</a>, 
+       <a id="complete_dentures" href="/services/complete_dentures">Complete&nbsp;Dentures</a>, 
+       <a id="implant_over_dentures" href="/services/implant_over_dentures">Implant&nbsp;over&nbsp;Dentures</a>, 
+       <a id="partials" href="/services/partials" >Partials</a>.</p>
+	</div>
+</div>
+{% endblock %}

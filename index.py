@@ -4,10 +4,14 @@ import os
 from google.appengine.ext.webapp import template
 
 class BsdPage(webapp.RequestHandler):
+  
+  def _render(self,page,args):
+    path = os.path.join(os.path.dirname(__file__), 'templates',page)
+    self.response.out.write(template.render(path,args))
+  
   def get(self):
-      path = os.path.join(os.path.dirname(__file__), 'templates',self.page)
-      self.response.out.write(template.render(path,{"page":self}))
-
+    self._render(self.page,{"page":self})
+    
   def root_class(self):
     return "selected" if self.tab == "home" else ""
   def staff_class(self):
@@ -50,16 +54,40 @@ class NewPatientPage(BsdPage):
     self.page = "newpatient.html"
     self.tab = "newpatient"
 
+    
+class ServicesPages(BsdPage):
+
+
+  def stype(self):
+    return self.service_type
+
+  def get(self,service_type):
+    self.tab = "services"
+    self.service_type = service_type
+    self._render("%s.html" % self.service_type,{"page":self})
+    
+  def selected_rule(self):
+    return "#%s { font-weight:bold }" % self.service_type
+  
+  
+
+
+                                
+class BeforeAfterPage(BsdPage):
+  pass
+                              
 application = webapp.WSGIApplication(
-          [
-  ('/', RootPage),
-  ('/staff',StaffPage),
-  ('/theoffice',OfficePage),
-  ('/directions',LocationPage),
-  ('/aboutus',AboutUsPage),
-  ('/newpatient',NewPatientPage),
+  [
+    ('/', RootPage),
+    ('/staff',StaffPage),
+    ('/theoffice',OfficePage),
+    ('/directions',LocationPage),
+    ('/aboutus',AboutUsPage),
+    ('/newpatient',NewPatientPage),
+    ('/services/(.*)',ServicesPages),
+    ('/before_after/(.*)',BeforeAfterPage)
   ],
-          debug=True)
+  debug=True)
 
 def main():
   run_wsgi_app(application)
