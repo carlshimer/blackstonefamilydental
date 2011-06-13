@@ -74,7 +74,9 @@ class ServicesPages(BsdPage):
 
                                 
 class BeforeAfterPage(BsdPage):
-  pass
+  def __init__(self):
+    self.page = "before_after.html"
+    self.tab = "before_after"
                               
 application = webapp.WSGIApplication(
   [
@@ -85,7 +87,7 @@ application = webapp.WSGIApplication(
     ('/aboutus',AboutUsPage),
     ('/newpatient',NewPatientPage),
     ('/services/(.*)',ServicesPages),
-    ('/before_after/(.*)',BeforeAfterPage)
+    ('/before_after',BeforeAfterPage)
   ],
   debug=True)
 

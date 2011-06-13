@@ -28,7 +28,8 @@ a:hover, a:active { text-decoration: underline; }
 #header h2 { margin: -10px 0 0 20px; }
 
 #content { padding-top: 20px;}
-#content p { font-size: 13px; line-height: 18px; }
+#content p,#content li { font-size: 13px; line-height: 18px; }
+#content ul { list-style-type:disc;margin-left:15px; } 
 
 .home h2 { color: #292929; margin-bottom: 6px; }
 .home h3 { background: url(../images/txt_signature.gif) no-repeat; height: 31px; width: 195px; text-indent: -5000px; margin: 10px 0 0 130px; }
