@@ -1,15 +1,16 @@
-from google.appengine.ext import webapp
-from google.appengine.ext.webapp.util import run_wsgi_app
+#from google.appengine.ext import webapp
+#from google.appengine.ext.webapp.util import run_wsgi_app
 import os
 from google.appengine.ext.webapp import template
+import webapp2
 
-class BsdPage(webapp.RequestHandler):
+class BsdPage(webapp2.RequestHandler):
   
   def _render(self,page,args):
     path = os.path.join(os.path.dirname(__file__), 'templates',page)
     self.response.out.write(template.render(path,args))
   
-  def get(self):
+  def get(self,*args):
     self._render(self.page,{"page":self})
     
   def root_class(self):
@@ -26,37 +27,42 @@ class BsdPage(webapp.RequestHandler):
     return 'selected' if self.tab == "newpatient" else ""
 
 class RootPage(BsdPage):
-  def __init__(self):
+  def __init__(self,request=None,response=None):
+    self.initialize(request,response)
     self.page = 'index.html'
     self.tab = "home"
 
 class StaffPage(BsdPage):
-  def __init__(self):
+  def __init__(self,request=None,response=None):
+    self.initialize(request,response)
     self.page = "staff.html"
     self.tab = "staff"
 
 class OfficePage(BsdPage):
-  def __init__(self):
+  def __init__(self,request=None,response=None):
+    self.initialize(request,response)
     self.page = "theoffice.html"
     self.tab = "office"
 
 class LocationPage(BsdPage):
-  def __init__(self):
+  def __init__(self,request=None,response=None):
+    self.initialize(request,response)
     self.page = "location.html"
 
 class AboutUsPage(BsdPage):
-  def __init__(self):
+  def __init__(self,request=None,response=None):
+    self.initialize(request,response)
     self.page = "aboutus.html"
 
 
 class NewPatientPage(BsdPage):
-  def __init__(self):
+  def __init__(self,request=None,response=None):
+    self.initialize(request,response)
     self.page = "newpatient.html"
     self.tab = "newpatient"
 
     
 class ServicesPages(BsdPage):
-
 
   def stype(self):
     return self.service_type
@@ -74,11 +80,17 @@ class ServicesPages(BsdPage):
 
                                 
 class BeforeAfterPage(BsdPage):
-  def __init__(self):
+
+  def __init__(self,request=None,response=None):
+    self.initialize(request,response)
     self.page = "before_after.html"
     self.tab = "before_after"
+
+
                               
-application = webapp.WSGIApplication(
+
+    
+app = webapp2.WSGIApplication(
   [
     ('/', RootPage),
     ('/staff',StaffPage),
@@ -88,11 +100,6 @@ application = webapp.WSGIApplication(
     ('/newpatient',NewPatientPage),
     ('/services/(.*)',ServicesPages),
     ('/before_after',BeforeAfterPage)
-  ],
+    ],
   debug=True)
 
-def main():
-  run_wsgi_app(application)
-
-if __name__ == "__main__":
-  main()
